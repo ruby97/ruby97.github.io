@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5310f40-903d-4a96-8630-70ebced1ae03" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/images/background-cover.jpg" afterPath="$PROJECT_DIR$/assets/images/background-cover2.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_config.yml" afterPath="$PROJECT_DIR$/_config.yml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2017/04/Mysql锁/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/Gemfile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/Gemfile.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/assets/images/avatar.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/assets/images/background-cover.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/animate.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/main.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/tomorrow.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/feed.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/js/main.js" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -212,12 +222,12 @@
       <updated>1492141596503</updated>
       <workItem from="1492141597923" duration="3304000" />
       <workItem from="1492147004515" duration="6440000" />
-      <workItem from="1492165115537" duration="286000" />
+      <workItem from="1492165115537" duration="327000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10030000" />
+    <option name="totallyTimeSpent" value="10071000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="422" y="42" width="1896" height="936" extended-state="0" />
