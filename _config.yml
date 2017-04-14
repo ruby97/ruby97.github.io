@@ -13,7 +13,7 @@ permalink: /:year/:month/:title/
 highlighter: rouge
 
 # supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
-cover_color: red
+#cover_color: red
 
 # The blog button should not be removed.
 blog_button:
@@ -31,14 +31,14 @@ paginate: 10
 paginate_path: "page/:num/"
 
 # Comment
-comment:
-    disqus: ninodong
+#comment:
+    #disqus: tianshuang
     # duoshuo: 
     
 # Social
 social:
-    github: ninorain22
-    mail: 314320133@qq.com
+    github: ruby97
+    mail: tianshuang@wemeshops.com
 
 # Google Analytics
 ga:
