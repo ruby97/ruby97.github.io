@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5310f40-903d-4a96-8630-70ebced1ae03" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/images/background-cover1.jpg" afterPath="$PROJECT_DIR$/assets/images/background-cover.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_config.yml" afterPath="$PROJECT_DIR$/_config.yml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,7 +34,7 @@
             <entry file="file://$PROJECT_DIR$/_config.yml">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="266">
-                  <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+                  <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -209,12 +208,12 @@
       <updated>1492141596503</updated>
       <workItem from="1492141597923" duration="3304000" />
       <workItem from="1492147004515" duration="6440000" />
-      <workItem from="1492165115537" duration="595000" />
+      <workItem from="1492165115537" duration="700000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10339000" />
+    <option name="totallyTimeSpent" value="10444000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="422" y="42" width="1896" height="936" extended-state="0" />
@@ -435,7 +434,7 @@
     <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
-          <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
