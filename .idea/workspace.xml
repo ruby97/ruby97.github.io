@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5310f40-903d-4a96-8630-70ebced1ae03" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_config.yml" afterPath="$PROJECT_DIR$/_config.yml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,13 +31,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="_config.yml" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/_config.yml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="266">
-                  <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-                  <folding />
-                </state>
+          <file leaf-file-name="background-cover2.jpg" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/assets/images/background-cover2.jpg">
+              <provider selected="true" editor-type-id="images">
+                <state />
               </provider>
             </entry>
           </file>
@@ -208,18 +206,18 @@
       <updated>1492141596503</updated>
       <workItem from="1492141597923" duration="3304000" />
       <workItem from="1492147004515" duration="6440000" />
-      <workItem from="1492165115537" duration="700000" />
+      <workItem from="1492165115537" duration="1170000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10444000" />
+    <option name="totallyTimeSpent" value="10914000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="422" y="42" width="1896" height="936" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16756757" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16756757" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -269,7 +267,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
           <caret line="32" column="9" lean-forward="true" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
-          <folding />
+          <folding>
+            <marker date="1492166375000" expanded="true" signature="15:21" ph="ruby97" />
+            <marker date="1492166375000" expanded="true" signature="294:315" ph="/:year/:m…th/:title/" />
+            <marker date="1492166375000" expanded="true" signature="339:344" ph="rouge" />
+            <marker date="1492166375000" expanded="true" signature="505:561" ph="blog_button: &lt;2 keys&gt;" />
+            <marker date="1492166375000" expanded="true" signature="529:533" ph="Blog" />
+            <marker date="1492166375000" expanded="true" signature="551:561" ph="Visit blog" />
+            <marker date="1492166375000" expanded="true" signature="791:814" ph="gems: [1 item]" />
+            <marker date="1492166375000" expanded="true" signature="798:813" ph="jekyll-paginate" />
+            <marker date="1492166375000" expanded="true" signature="825:827" ph="10" />
+            <marker date="1492166375000" expanded="true" signature="843:855" ph="page/:num/" />
+            <marker date="1492166375000" expanded="true" signature="931:992" ph="social: &lt;2 keys&gt;" />
+            <marker date="1492166375000" expanded="true" signature="951:957" ph="ruby97" />
+            <marker date="1492166375000" expanded="true" signature="968:992" ph="tianshuan…eshops.com" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -317,7 +329,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
-          <folding />
+          <folding>
+            <marker date="1492166375000" expanded="true" signature="15:21" ph="ruby97" />
+            <marker date="1492166375000" expanded="true" signature="294:315" ph="/:year/:m…th/:title/" />
+            <marker date="1492166375000" expanded="true" signature="339:344" ph="rouge" />
+            <marker date="1492166375000" expanded="true" signature="505:561" ph="blog_button: &lt;2 keys&gt;" />
+            <marker date="1492166375000" expanded="true" signature="529:533" ph="Blog" />
+            <marker date="1492166375000" expanded="true" signature="551:561" ph="Visit blog" />
+            <marker date="1492166375000" expanded="true" signature="791:814" ph="gems: [1 item]" />
+            <marker date="1492166375000" expanded="true" signature="798:813" ph="jekyll-paginate" />
+            <marker date="1492166375000" expanded="true" signature="825:827" ph="10" />
+            <marker date="1492166375000" expanded="true" signature="843:855" ph="page/:num/" />
+            <marker date="1492166375000" expanded="true" signature="931:992" ph="social: &lt;2 keys&gt;" />
+            <marker date="1492166375000" expanded="true" signature="951:957" ph="ruby97" />
+            <marker date="1492166375000" expanded="true" signature="968:992" ph="tianshuan…eshops.com" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -395,11 +421,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/images/background-cover2.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_includes/read-more.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -416,16 +437,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/images/background-cover4.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/images/avatar.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/images/background-cover.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -433,10 +444,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="114">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <marker date="1492166375000" expanded="true" signature="15:21" ph="ruby97" />
+            <marker date="1492166375000" expanded="true" signature="294:315" ph="/:year/:m…th/:title/" />
+            <marker date="1492166375000" expanded="true" signature="339:344" ph="rouge" />
+            <marker date="1492166375000" expanded="true" signature="505:561" ph="blog_button: &lt;2 keys&gt;" />
+            <marker date="1492166375000" expanded="true" signature="529:533" ph="Blog" />
+            <marker date="1492166375000" expanded="true" signature="551:561" ph="Visit blog" />
+            <marker date="1492166375000" expanded="true" signature="791:814" ph="gems: [1 item]" />
+            <marker date="1492166375000" expanded="true" signature="798:813" ph="jekyll-paginate" />
+            <marker date="1492166375000" expanded="true" signature="825:827" ph="10" />
+            <marker date="1492166375000" expanded="true" signature="843:855" ph="page/:num/" />
+            <marker date="1492166375000" expanded="true" signature="931:992" ph="social: &lt;2 keys&gt;" />
+            <marker date="1492166375000" expanded="true" signature="951:957" ph="ruby97" />
+            <marker date="1492166375000" expanded="true" signature="968:992" ph="tianshuan…eshops.com" />
+          </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/avatar.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/background-cover4.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/background-cover2.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
   </component>
