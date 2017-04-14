@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5310f40-903d-4a96-8630-70ebced1ae03" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2017/04/Mysql锁/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/Gemfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/Gemfile.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/assets/images/avatar.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/assets/images/background-cover.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/animate.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/main.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/tomorrow.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/feed.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/js/main.js" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/images/background-cover.jpg" afterPath="$PROJECT_DIR$/assets/images/background-cover4.jpg" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,13 +19,10 @@
     <splitter split-orientation="horizontal" split-proportion="0.6298701">
       <split-first>
         <leaf>
-          <file leaf-file-name="read-more.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/_includes/read-more.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="361">
-                  <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-                  <folding />
-                </state>
+          <file leaf-file-name="avatar.jpg" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/assets/images/avatar.jpg">
+              <provider selected="true" editor-type-id="images">
+                <state />
               </provider>
             </entry>
           </file>
@@ -222,12 +208,12 @@
       <updated>1492141596503</updated>
       <workItem from="1492141597923" duration="3304000" />
       <workItem from="1492147004515" duration="6440000" />
-      <workItem from="1492165115537" duration="327000" />
+      <workItem from="1492165115537" duration="529000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10071000" />
+    <option name="totallyTimeSpent" value="10273000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="422" y="42" width="1896" height="936" extended-state="0" />
@@ -267,7 +253,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
-          <folding />
+          <folding>
+            <marker date="1492164254000" expanded="true" signature="26:1523" ph="..." />
+            <marker date="1492164254000" expanded="true" signature="116:748" ph="..." />
+            <marker date="1492164254000" expanded="false" signature="423:431" ph="…" />
+            <marker date="1492164254000" expanded="true" signature="604:611" ph="..." />
+            <marker date="1492164254000" expanded="true" signature="865:1497" ph="..." />
+            <marker date="1492164254000" expanded="false" signature="1172:1180" ph="…" />
+            <marker date="1492164254000" expanded="true" signature="1353:1360" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -329,11 +323,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2016-02-16-hello-world-vno.markdown" />
     <entry file="file://$PROJECT_DIR$/_posts/2016-02-15-sample-post.markdown" />
-    <entry file="file://$PROJECT_DIR$/assets/images/avatar.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_plugins/tocGenerator.rb" />
     <entry file="file://$PROJECT_DIR$/_includes/comments.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -423,8 +412,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
+          <folding>
+            <marker date="1492164254000" expanded="true" signature="26:1523" ph="..." />
+            <marker date="1492164254000" expanded="true" signature="116:748" ph="..." />
+            <marker date="1492164254000" expanded="false" signature="423:431" ph="…" />
+            <marker date="1492164254000" expanded="true" signature="604:611" ph="..." />
+            <marker date="1492164254000" expanded="true" signature="865:1497" ph="..." />
+            <marker date="1492164254000" expanded="false" signature="1172:1180" ph="…" />
+            <marker date="1492164254000" expanded="true" signature="1353:1360" ph="..." />
+          </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/background-cover4.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/avatar.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
   </component>
