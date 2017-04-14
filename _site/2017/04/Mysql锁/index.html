@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Mysql锁问题</title>
+  <meta name="description" content="Mysql锁概述  表级锁  行级锁  页面锁">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mysql锁问题">
+  <meta name="twitter:description" content="Mysql锁概述  表级锁  行级锁  页面锁">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Mysql锁问题">
+  <meta property="og:description" content="Mysql锁概述  表级锁  行级锁  页面锁">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2017/04/Mysql%E9%94%81/">
+  <link rel="alternate" type="application/rss+xml" title="Nino Dong" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+
+  <style>
+    table{
+      border-left:1px solid #000000;border-top:1px solid #000000;
+      width: 100%;
+      word-wrap:break-word; word-break:break-all;
+    }
+    table th{
+      text-align:center;
+    }
+    table th,td{
+      border-right:1px solid #000000;border-bottom:1px solid #000000;
+    }
+  </style>
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 Nino Dong 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="Nino Dong logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for Nino Dong" class="blog-button">Nino Dong</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">Blog</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description"></p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="Visit blog" class="blog-button">Blog</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+    <a href="https://github.com/ninorain22" title="@ninorain22 的 Github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:314320133@qq.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-red"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-04-14 11:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-04-14</time> &#8226; <span class="post-meta__tags tags"></span>
+    </div>
+    <h1 class="post-title">Mysql锁问题</h1>
+  </header>
+
+  <section class="post">
+    <h2 id="mysql锁概述">Mysql锁概述</h2>
+<hr />
+<ul>
+  <li>表级锁</li>
+  <li>行级锁</li>
+  <li>页面锁</li>
+</ul>
+
+<h2 id="myisam锁问题">MyISAM锁问题</h2>
+<p>MyISAM只支持表锁</p>
+
+<h3 id="查询表级锁争用情况">查询表级锁争用情况</h3>
+
+<p><code class="highlighter-rouge">show status like 'table%';</code></p>
+
+<p>如果Table_locks_waited较高，说明表级锁争用严重</p>
+
+<p>Mysql表级锁有两种模式</p>
+<ul>
+  <li>表共享读锁
+对MyISAM表的读操作，不会阻塞其他用户对同一表的读请求，但会阻塞对同一表的写请求</li>
+  <li>表独占写锁
+对MyISAM表的写操作，则会阻塞其他用户对同一表的读和写操作</li>
+</ul>
+
+<h3 id="并发插入">并发插入</h3>
+<p>MyISAM有一个系统变量concurrent_insert:</p>
+<ul>
+  <li>0: 不允许并发插入</li>
+  <li>1: 如果MyISAM表中没有空洞（即表的中间没有被删除的行），MyISAM允许在一个进程读表的同时，另一个进程从表尾插入记录。这也是MySQL的默认设置</li>
+  <li>2: 无论MyISAM表中有没有空洞，都允许在表尾并发插入记录</li>
+</ul>
+
+<p>MyISAM存储引擎的读锁和写锁是互斥的，读写操作是串行的。
+** 写请求后到，写锁也会插到读锁请求之前 **</p>
+
+<h3 id="myisam的锁调度">MyISAM的锁调度</h3>
+<p>可以通过设置来调节MyISAM调度行为：</p>
+<ul>
+  <li>制定启动参数low-priority-updates,使MyISAM给予读请求以优先的权利</li>
+  <li>SET LOW_PRIORITY_UPDATES = 1使更新请求的优先级降低</li>
+  <li>指定INSERT,UPDATE,DELETE语句的LOW_PRIORITY属性</li>
+</ul>
+
+<h2 id="innodb锁问题">InnoDb锁问题</h2>
+<hr />
+<p>支持事务，采用了行级锁</p>
+
+<p>并发事务处理带来的问题：</p>
+<ul>
+  <li>更新丢失
+当两个或多个事务选择同一行，然后基于最初选定的值更新该行时，由于每个事务都不知道其他事务的存在，就会发生丢失更新问题－－最后的更新覆盖了由其他事务所做的更新</li>
+  <li>脏读
+一个事务正在对一条记录做修改，在这个事务完成并提交前，这条记录的数据就处于不一致状态</li>
+  <li>不可重复读
+一个事务在读取某些数据后的某个时间，再次读取以前读过的数据，却发现其读出的数据已经发生了改变、或某些记录已经被删除了</li>
+  <li>幻读
+一个事务按相同的查询条件重新读取以前检索过的数据，却发现其他事务插入了满足其查询条件的新数据</li>
+</ul>
+
+<p>隔离级别及允许出现的副作用：
+| 隔离级别 | 读数据一致性 | 脏读 | 不可重复读 | 幻读 |
+| — | — | — | — | — |
+| 未提交读 | 最低级别 | 是 | 是 | 是 |
+| 已提交读 | 语句级 | 否 | 是 | 是 |
+| 可重复读 | 事务级 | 否 | 否 | 是 |
+| 可序列化 | 最高级别，事务级 | 否 | 否 | 否 |</p>
+
+<h3 id="innddb行锁争用情况">InndDB行锁争用情况</h3>
+<p><code class="highlighter-rouge">show status like 'innodb_row_lock%';</code>
+如果InnoDB_row_lock_waits和InnoDB_row_lock_time_avg的值比较高，说明锁争用比较严重</p>
+
+<h3 id="innodb行锁模式及加锁方法">InnoDB行锁模式及加锁方法</h3>
+<p>2种行锁</p>
+<ul>
+  <li>共享锁（S）：允许一个事务去读一行，阻止其他事务获得相同数据集的排他锁</li>
+  <li>排他锁（X）：允许获得排他锁的事务更新数据，阻止其他事务取得相同数据集的共享读锁和排他写锁</li>
+</ul>
+
+<p>另外，为了允许行锁和表锁共存，实现多粒度锁机制，InnoDB还有两种内部使用的意向锁（<strong>表锁</strong>）</p>
+<ul>
+  <li>意向共享锁（IS）：事务打算给数据行加行共享锁，事务在给一个数据行加共享锁前必须先取得该表的IS锁</li>
+  <li>意向排他锁（IX）：事务打算给数据行加行排他锁，事务在给一个数据行加排他锁前必须先取得该表的IX锁</li>
+</ul>
+
+<p>意向锁是InnoDB自动加的，不需用户干预
+对于UPDATE、DELETE和INSERT语句，InnoDB会自动给涉及数据集加排他锁（X)
+对于普通SELECT语句，InnoDB不会加任何锁</p>
+
+<ul>
+  <li>共享锁（S）：SELECT * FROM table_name WHERE … LOCK IN SHARE MODE</li>
+  <li>排他锁（X)：SELECT * FROM table_name WHERE … FOR UPDATE</li>
+</ul>
+
+<p>用SELECT … IN SHARE MODE获得共享锁，主要用在需要数据依存关系时来确认某行记录是否存在，并确保没有人对这个记录进行UPDATE或者DELETE操作。但是如果当前事务也需要对该记录进行更新操作，则很有可能造成死锁，对于锁定行记录后需要进行更新操作的应用，应该使用SELECT… FOR UPDATE方式获得排他锁</p>
+
+<h3 id="innodb行锁实现方式">InnoDB行锁实现方式</h3>
+<p>InnoDB行锁是通过给索引上的<strong>索引项</strong>加锁来实现的，这一点MySQL与Oracle不同，后者是通过在数据块中对相应数据行加锁来实现的。InnoDB这种行锁实现特点意味着：<strong>只有通过索引条件检索数据，InnoDB才使用行级锁</strong>，否则，InnoDB将使用表锁</p>
+
+<p>由于MySQL的行锁是针对<strong>索引</strong>加的锁，不是针对记录加的锁，所以虽然是访问不同行的记录，但是如果是使用相同的索引键，是会出现锁冲突的</p>
+
+<p>当表有多个索引的时候，不同的事务可以使用不同的索引锁定不同的行，另外，不论是使用主键索引、唯一索引或普通索引，InnoDB都会使用行锁来对数据加锁</p>
+
+<p>即便在条件中使用了索引字段，但是否使用索引来检索数据是由MySQL通过判断不同执行计划的代价来决定的，如果MySQL认为全表扫描效率更高，比如对一些很小的表，它就不会使用索引，这种情况下InnoDB将使用表锁，而不是行锁</p>
+
+<p><strong>检索值的数据类型与索引字段不同，虽然MySQL能够进行数据类型转换，但却不会使用索引</strong></p>
+
+<h3 id="间隙锁">间隙锁</h3>
+<p>当我们用范围条件而不是相等条件检索数据，并请求共享或排他锁时，InnoDB会给符合条件的已有数据记录的索引项加锁；对于键值在条件范围内但并不存在的记录，叫做“间隙（GAP)”，InnoDB也会对这个“间隙”加锁，这种锁机制就是所谓的间隙锁（Next-Key锁）</p>
+
+<p>InnoDB除了通过范围条件加锁时使用间隙锁外，如果使用相等条件请求给一个不存在的记录加锁，InnoDB也会使用间隙锁</p>
+
+<h3 id="恢复和复制的需要对innodb锁机制的影响">恢复和复制的需要，对InnoDB锁机制的影响</h3>
+
+<p>对于“insert  into target_tab select * from source_tab where …”和“create  table new_tab …select … From  source_tab where …(CTAS)”这种SQL语句，用户并没有对source_tab做任何更新操作，但MySQL对这种SQL语句做了特别处理</p>
+
+<p>INSERT…SELECT…和CREATE TABLE…SELECT…语句，可能会阻止对源表的并发更新，造成对源表锁的等待。如果查询比较复杂的话，会造成严重的性能问题，我们在应用中应尽量避免使用</p>
+
+<h3 id="什么时候使用表锁">什么时候使用表锁</h3>
+<p>对于InnoDB表，在绝大部分情况下都应该使用行级锁，因为事务和行锁往往是我们之所以选择InnoDB表的理由
+在个别特殊事务中，也可以考虑使用表级锁:</p>
+<ul>
+  <li>事务需要更新大部分或者全部数据，表又比较大，如果使用默认的行锁，不仅这个事务执行效率低，而且可能造成其他事务长时间锁等待和锁冲突，这种情况下可以考虑使用表锁来提高该事务的执行速度</li>
+  <li>事务涉及多个表，比较复杂，很可能引起死锁，造成大量事务回滚。这种情况也可以考虑一次性锁定事务涉及的表，从而避免死锁、减少数据库因事务回滚带来的开销</li>
+</ul>
+
+<p>在InnoDB下，使用表锁要注意以下两点</p>
+<ul>
+  <li>仅当autocommit=0、innodb_table_locks=1（默认设置）时，InnoDB层才能知道MySQL加的表锁，MySQL Server也才能感知InnoDB加的行锁</li>
+  <li>用LOCK TABLES对InnoDB表加锁时要注意，要将AUTOCOMMIT设为0，否则MySQL不会给表加锁；事务结束前，不要用UNLOCK TABLES释放表锁，因为UNLOCK TABLES会隐含地提交事务；COMMIT或ROLLBACK并不能释放用LOCK TABLES加的表级锁，必须用UNLOCK TABLES释放表锁</li>
+</ul>
+
+<h3 id="关于死锁">关于死锁</h3>
+<p>发生死锁后，InnoDB一般都能自动检测到，并使一个事务释放锁并回退，另一个事务获得锁，继续完成事务。但在涉及外部锁，或涉及表锁的情况下，InnoDB并不能完全自动检测到死锁，这需要通过设置锁等待超时参数innodb_lock_wait_timeout来解决
+在并发访问比较高的情况下，如果大量事务因无法立即获得所需的锁而挂起，会占用大量计算机资源，造成严重性能问题，甚至拖跨数据库。我们通过设置合适的锁等待超时阈值，可以避免这种情况发生</p>
+
+<p>几种避免死锁的常用方法：</p>
+<ul>
+  <li>在应用中，如果不同的程序会并发存取多个表，应尽量约定以相同的顺序来访问表，这样可以大大降低产生死锁的机会</li>
+  <li>在程序以批量方式处理数据的时候，如果事先对数据排序，保证每个线程按固定的顺序来处理记录，也可以大大降低出现死锁的可能</li>
+  <li>在事务中，如果要更新记录，应该直接申请足够级别的锁，即排他锁</li>
+</ul>
+
+<p>如果出现死锁，可以用<code class="highlighter-rouge">SHOW INNODB STATUS</code>命令来确定最后一个死锁产生的原因</p>
+
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2017/04/Mysql%E9%94%81/";
+        this.page.identifier = "/2017/04/Mysql%E9%94%81/";
+    };
+
+    var disqus_shortname = 'ninodong';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2017-04-14 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2017</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+
+    
+  </body>
+
+</html>
